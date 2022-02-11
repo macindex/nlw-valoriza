@@ -6,6 +6,8 @@ import "./database"
 
 const app = express();
 
+app.use(express.json());
+
 // // PATCH => Informação específica
 
 // app.get("/test", (req, res) => {
