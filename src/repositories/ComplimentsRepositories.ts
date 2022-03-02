@@ -4,7 +4,7 @@ import { Compliment } from "../entities/Compliment";
 
 @EntityRepository(Compliment)
 class ComplimentsRepositories extends Repository<Compliment> {
-
+    
 
 }
 
