@@ -1,19 +1,38 @@
 import { Request, Response, NextFunction, request } from "express";
+import { verify } from "jsonwebtoken";
 
 
+interface IPload {
+    sub: string
+}
 
-
-export function ensureAuthenticated (reques: Request, response: Response, next: NextFunction ) {
+export function ensureAuthenticated (request: Request, response: Response, next: NextFunction ) {
     // Receber token
-    const token = request.headers.authorization;
+    const authToken = request.headers.authorization;
 
+    //console.log(token)
+    if(!authToken) {
+        return response.status(401).end()
+    }
+
+    const [, token] = authToken.split(" ") 
     console.log(token)
-    return next(); 
-    // Validar se o Token está preenchido
     // Validar se o Token está válido
+    try {
+        const { sub } = verify(authToken, "66c761f9ec0d7f7b809854a752ba5f8e") as IPload
+
+        request.user_id = sub
+
+        return next()
+    }catch(err) {
+        return response.status(401).end()
+    }
+    
+    // Validar se o Token está preenchido
+    
     // Recuperar informações do user
 
 
-
+    return next(); 
 }
 
