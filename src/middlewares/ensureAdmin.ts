@@ -5,7 +5,7 @@ import { UsersRepositories } from "../repositories/UsersRepositories";
 export async function ensureAdmin(request: Request, response: Response, next: NextFunction) {
 
     const { user_id } = request;
-    //console.log(user_id)
+    console.log(user_id);
 
     const usersRepositories = getCustomRepository(UsersRepositories)
 

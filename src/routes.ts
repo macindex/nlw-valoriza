@@ -15,7 +15,7 @@ const authenticateUserController = new AuthenticateUserController()
 const createComplimentController = new CreateComplimentController()
 
 router.post("/tags", ensureAuthenticated, ensureAdmin, createUserController.handle)
-router.post("/tags", createTagController.handle)
+router.post("/users", createTagController.handle)
 router.post("/login", authenticateUserController.handle)
 router.post("/compliments", ensureAuthenticated, createComplimentController.handle)
 
