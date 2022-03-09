@@ -16,7 +16,7 @@ export function ensureAuthenticated (request: Request, response: Response, next:
     }
 
     const [, token] = authToken.split(" ") 
-     console.log(token)
+     //console.log(token)
     // Validar se o Token está válido
     try {
         const { sub } = verify(authToken, "66c761f9ec0d72cc0d48dc795e0548627fb67411486c1f7b809854a752ba5f8e") as IPload;
