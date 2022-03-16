@@ -19,7 +19,7 @@ export function ensureAuthenticated (request: Request, response: Response, next:
      //console.log(token)
     // Validar se o Token está válido
     try {
-        const { sub } = verify(authToken, "66c761f9ec0d72cc0d48dc795e0548627fb67411486c1f7b809854a752ba5f8e") as IPload;
+        const { sub } = verify(authToken, "2cc0d48dc795e0548627fb67411486c1") as IPload;
 
         request.user_id = sub
 
