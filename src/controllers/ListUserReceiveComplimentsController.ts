@@ -5,8 +5,8 @@ class ListUserReceiveComplimentsController {
     async handle(request: Request, response: Response) {
         const { user_id } = request
 
-        const listUserSendComplimentsService = new ListUserReceiveComplimentsService()
-        const compliments = await listUserSendComplimentsService.execute(user_id)
+        const listUserReceiveComplimentsService = new ListUserReceiveComplimentsService()
+        const compliments = await listUserReceiveComplimentsService.execute(user_id)
 
         return response.json(compliments)
     }
